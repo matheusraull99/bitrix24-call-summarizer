@@ -1,0 +1,8 @@
+requests>=2.31
+openai-whisper>=20231117
+soundfile>=0.12
+numpy>=1.26
+anthropic>=0.40
+
+# Cliente base da serie (projeto 01)
+bitrix24-client @ git+https://github.com/matheusraull99/bitrix24-rest-client.git@v1.0.0

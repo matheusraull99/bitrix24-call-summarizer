@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bitrix24-call-summarizer"
+version = "1.0.0"
+description = "Transcreve ligacoes do Bitrix24 com Whisper e resume com Claude em JSON estruturado"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["requests>=2.31", "openai-whisper>=20231117", "soundfile>=0.12", "numpy>=1.26", "anthropic>=0.40"]
+
+[project.scripts]
+resumir-ligacoes = "ligacao.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
