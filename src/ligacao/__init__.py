@@ -3,8 +3,8 @@
 from .resumo import ESQUEMA, MODELO, ResumoLigacao, extrair_json, resumir
 from .transcricao import (
     MODELO_PADRAO,
-    Trecho,
     Transcricao,
+    Trecho,
     limpar_para_resumo,
     transcrever,
 )
@@ -16,8 +16,8 @@ __all__ = [
     "MODELO",
     "MODELO_PADRAO",
     "ResumoLigacao",
-    "Trecho",
     "Transcricao",
+    "Trecho",
     "extrair_json",
     "limpar_para_resumo",
     "resumir",

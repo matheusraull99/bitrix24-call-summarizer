@@ -4,5 +4,8 @@ soundfile>=0.12
 numpy>=1.26
 anthropic>=0.40
 
+# Base de fusos horarios: o Windows nao tem uma, o zoneinfo precisa dela
+tzdata>=2024.1; sys_platform == 'win32'
+
 # Cliente base da serie (projeto 01)
 bitrix24-client @ git+https://github.com/matheusraull99/bitrix24-rest-client.git@v1.0.0

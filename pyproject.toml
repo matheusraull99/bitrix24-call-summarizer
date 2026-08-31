@@ -9,7 +9,7 @@ description = "Transcreve ligacoes do Bitrix24 com Whisper e resume com Claude e
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-dependencies = ["requests>=2.31", "openai-whisper>=20231117", "soundfile>=0.12", "numpy>=1.26", "anthropic>=0.40"]
+dependencies = ["requests>=2.31", "openai-whisper>=20231117", "soundfile>=0.12", "numpy>=1.26", "anthropic>=0.40", "tzdata>=2024.1; sys_platform == 'win32'"]
 
 [project.scripts]
 resumir-ligacoes = "ligacao.cli:main"

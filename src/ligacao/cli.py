@@ -7,6 +7,7 @@ import logging
 import os
 import sys
 import tempfile
+from datetime import timedelta
 from pathlib import Path
 
 import requests
@@ -14,6 +15,7 @@ from bitrix24_client import from_env
 from bitrix24_client.errors import BitrixError
 
 from .resumo import ResumoLigacao, resumir
+from .tempo import hoje
 from .transcricao import MODELO_PADRAO, limpar_para_resumo, transcrever
 
 log = logging.getLogger("ligacao")
@@ -93,9 +95,9 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     from anthropic import Anthropic
-    from datetime import date, timedelta
 
-    desde = args.desde or (date.today() - timedelta(days=1)).isoformat()
+    # "Ontem" é ontem no fuso de São Paulo, não no do servidor: ver `tempo.py`.
+    desde = args.desde or (hoje() - timedelta(days=1)).isoformat()
 
     try:
         bx = from_env()
@@ -118,7 +120,7 @@ def main(argv: list[str] | None = None) -> int:
         try:
             resumo = processar(bx, cliente_ia, ligacao, args.modelo_whisper,
                                not args.executar)
-        except Exception as exc:  # noqa: BLE001 - uma ligacao nao para o lote
+        except Exception:  # amplo de proposito: uma ligacao nao para o lote
             log.exception("falha na ligacao %s", ligacao.get("ID"))
             falhas += 1
             continue

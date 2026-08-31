@@ -188,7 +188,7 @@ def limpar_para_resumo(texto: str, limite_caracteres: int = 40_000) -> str:
         linhas.append(linha)
 
     limpo = "\n".join(linhas)
-    limpo = re.sub(r"\b(é|eh|ah|hum|hmm|né)\b[,.]?\s*", "", limpo, flags=re.I)
+    limpo = re.sub(r"\b(é|eh|ah|hum|hmm|né)\b[,.]?\s*", "", limpo, flags=re.IGNORECASE)
     limpo = re.sub(r"\s{2,}", " ", limpo)
 
     if len(limpo) <= limite_caracteres:

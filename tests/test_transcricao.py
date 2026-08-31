@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ligacao.transcricao import Trecho, Transcricao, limpar_para_resumo
+from ligacao.transcricao import Transcricao, Trecho, limpar_para_resumo
 
 
 def trecho(falante="Vendedor", inicio=0.0, fim=5.0, texto="ola") -> Trecho:

@@ -169,11 +169,11 @@ def extrair_json(texto: str) -> dict[str, Any]:
     """
     tentativas = [texto]
 
-    cerca = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", texto, re.S)
+    cerca = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", texto, re.DOTALL)
     if cerca:
         tentativas.insert(0, cerca.group(1))
 
-    chaves = re.search(r"\{.*\}", texto, re.S)
+    chaves = re.search(r"\{.*\}", texto, re.DOTALL)
     if chaves:
         tentativas.append(chaves.group())
 
