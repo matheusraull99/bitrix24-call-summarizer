@@ -15,7 +15,7 @@ dependencies = ["requests>=2.31", "openai-whisper>=20231117", "soundfile>=0.12",
 resumir-ligacoes = "ligacao.cli:main"
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = ["pytest>=8", "ruff==0.16.5"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
